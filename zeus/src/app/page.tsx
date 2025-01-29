@@ -10,7 +10,7 @@ export default function Home() {
       <form action={async (form) => {
         'use server'
 
-        redirect(`/search/results?some=${form.get('firstName')}`)
+        redirect(`/search?some=${form.get('firstName')}`)
         // redirect(`/test`)
       }}>
         <input

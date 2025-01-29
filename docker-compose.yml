@@ -9,7 +9,9 @@ services:
     # ports:
     #   - 3000:3000
     entrypoint: [ "npm", "run",  "dev" ]
-  
+    environment:
+      - WATCHPACK_POLLING=true
+        
   zeus:
     build: 
       context: .
