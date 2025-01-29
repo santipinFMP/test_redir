@@ -24,6 +24,7 @@ services:
     entrypoint: [ "npm", "run",  "dev" ]
     environment:
       - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
 
   nginx:
     image: nginx

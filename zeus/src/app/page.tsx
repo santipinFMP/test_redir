@@ -1,7 +1,11 @@
+// 'use client'
+
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default function Home() {
+  // const router = useRouter()
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <h1>ZEUS HOMEPAGE</h1>
@@ -10,7 +14,11 @@ export default function Home() {
       <form action={async (form) => {
         'use server'
 
-        redirect(`/search?some=${form.get('firstName')}`)
+        const formData = await form
+
+        const nextPage = `/search?some=${formData.get('firstName')}`
+        // router.push(`/search?some=${formData.get('firstName')}`)
+        redirect(`/redirect?nextPage=${encodeURIComponent(nextPage)}`)
         // redirect(`/test`)
       }}>
         <input
